@@ -13,9 +13,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<script type="text/javascript">
-	alert("CAMPER에 오신것을 환영 합니다.");
-</script>
 
 
 <c:if test="${!empty authUser }">
@@ -25,13 +22,10 @@ ${authUser.name }님, 안녕하세요.
 <a href="${root }/board_Free/write.do">자유게시판 글쓰기</a>
 </c:if>
 
-
-
-
 <c:if test="${empty authUser }">
 <a href="${root }/join.do">회원가입</a>
 <a href="${root }/login.do">로그인</a>
 </c:if>
-
+ 
 </body>
 </html>

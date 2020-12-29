@@ -25,7 +25,7 @@
 	<c:if test="${errors.content }">내용이 비어 있습니다. </c:if>
 	
 	<br />
-	
+
 	<input type="submit" value="글 등록" />
 </form>
 </body>

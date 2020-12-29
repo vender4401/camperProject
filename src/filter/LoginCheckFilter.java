@@ -3,13 +3,16 @@ package filter;
 import java.io.IOException;
 
 
+
+
+
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
-import javax.servlet.annotation.WebFilter;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -44,11 +47,11 @@ public class LoginCheckFilter implements Filter {
 		HttpSession session = request.getSession(false);
 		
 		if(session == null || session.getAttribute("authUser") == null) {
-			//로그인이 되어 있지 않으면
+			// 로그인이 되어 있지 않으면
 			// index.jsp redirect
 			response.sendRedirect(request.getContextPath() + "/login.do");
 		} else {
-			//로그인이 되어 있으면
+			// 로그인이 되어있으면
 			chain.doFilter(request, response);			
 		}
 		

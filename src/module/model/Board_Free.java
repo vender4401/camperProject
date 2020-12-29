@@ -50,7 +50,6 @@ public class Board_Free {
 	public int getRecommendCount() {
 		return recommendCount;
 	}
-	
-	
+
 	
 }

@@ -14,6 +14,7 @@ public class WriteRequest {
 		this.writer = writer;
 		this.title = title;
 		this.content = content;
+		
 	}
 
 	public Writer getWriter() {
@@ -36,5 +37,6 @@ public class WriteRequest {
 			errors.put("content", Boolean.TRUE);
 		}
 	}
+
 	
 }

@@ -2,6 +2,7 @@ package module.dao;
 
 import java.sql.Connection;
 
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -11,11 +12,53 @@ import java.util.Date;
 import java.util.List;
 
 import db.DBUtil;
-
 import module.model.Board_Free;
 import module.model.Writer;
 
 public class Board_FreeDao {	
+	
+	public int update(Connection con, int no, String title) throws SQLException {
+		String sql = "UPDATE board_Free SET title=?, moddate=SYSDATE "
+				+ "WHERE board_no=?";
+		try(PreparedStatement pstmt = con.prepareStatement(sql)) {
+			pstmt.setString(1, title);
+			pstmt.setInt(2, no);
+			
+			int cnt = pstmt.executeUpdate();
+			return cnt;
+		}
+	}
+	
+	public Board_Free selectById(Connection con, int no) throws SQLException {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "SELECT * FROM board_free WHERE board_no=?";
+		
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, no);
+			rs = pstmt.executeQuery();
+			
+			Board_Free board_Free = null;
+			
+			if(rs.next()) {
+				board_Free = convertBoard_Free(rs);
+			}
+			return board_Free;
+		} finally {
+			DBUtil.close(rs, pstmt);
+		}
+	}
+	
+	public void increaseReadCount(Connection con, int no) throws SQLException {
+		try (PreparedStatement pstmt = con.prepareStatement(
+				"UPDATE board_free SET read_cnt=read_cnt+1 "
+						+ "WHERE board_no=?"
+				)) {
+			pstmt.setInt(1, no);
+			pstmt.executeUpdate();
+		}			
+	}
 	
 	public List<Board_Free> select(Connection con, int pageNum, int size) throws SQLException {			
 			
@@ -26,11 +69,6 @@ public class Board_FreeDao {
 	                + "OVER (ORDER BY board_no DESC) rn FROM board_free ) "
 	                + "WHERE rn BETWEEN ? AND ?";
 			
-			/*
-			String sql = "SELECT * FROM article ORDER BY article_no DESC "
-					+ "LIMIT ?, ?";
-					// 시작 row_num(zerobase), 갯수
-			*/
 			
 			PreparedStatement pstmt = null;
 			ResultSet rs = null;
@@ -42,7 +80,7 @@ public class Board_FreeDao {
 				rs = pstmt.executeQuery();
 				List<Board_Free> result = new ArrayList<>();
 				while (rs.next()) {
-					result.add(convertArticle(rs));
+					result.add(convertBoard_Free(rs));
 				}
 				
 				return result;
@@ -51,7 +89,7 @@ public class Board_FreeDao {
 			}
 		}
 	
-	private Board_Free convertArticle(ResultSet rs) throws SQLException {
+	private Board_Free convertBoard_Free(ResultSet rs) throws SQLException {
 		return new Board_Free(rs.getInt("board_no"),
 					new Writer(
 							rs.getString("writer_id"),
@@ -79,7 +117,7 @@ public class Board_FreeDao {
 				return rs.getInt(1);
 			}
 			return 0;
-		} finally {
+		} finally { 
 			DBUtil.close(rs, stmt);
 		}
 	}
