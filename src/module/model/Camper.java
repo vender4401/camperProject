@@ -35,8 +35,6 @@ public class Camper {
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-
-	
 	
 	public String getBirth() {
 		return birth;

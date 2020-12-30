@@ -16,7 +16,7 @@ public class Board_FreeData {
 		return board_Free;
 	}
 	
-	public Board_Content getBoard_Content() {
-		return board_Content;
+	public String getBoard_Content() {
+		return board_Content.getContent();
 	}
 }

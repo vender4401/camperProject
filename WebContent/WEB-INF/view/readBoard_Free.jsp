@@ -26,8 +26,11 @@
 	
 	<tr>
 		<td>내용</td>
-		<td>${board_FreeData.board_Content.content }</td>
+		<td>${board_FreeData.board_Content }</td>
 	</tr>
+	
 </table>
+	<a href="${root }/board_Free/modify.do?no=${board_FreeData.board_Free.number }">수정</a>
+	<a href="${root }/board_Free/delete.do?no=${board_FreeData.board_Free.number }">삭제</a>
 </body>
 </html>

@@ -1,11 +1,10 @@
-package reply.service;
+package camper_reply.service;
 
 import java.sql.Connection;
 import java.sql.SQLException;
 
 import db.ConnectionProvider;
 import module.dao.Reply_FreeDao;
-
 
 public class ReplyAddService {
 	private Reply_FreeDao dao = new Reply_FreeDao();

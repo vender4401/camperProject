@@ -3,6 +3,7 @@ package module.dao;
 import java.sql.Connection;
 
 
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -16,6 +17,16 @@ import module.model.Board_Free;
 import module.model.Writer;
 
 public class Board_FreeDao {	
+	
+	public void delete(Connection con, int no) throws SQLException {
+		String sql = "DELETE board_Free WHERE board_no=?";
+		
+		try (PreparedStatement pstmt = con.prepareStatement(sql)) {
+			pstmt.setInt(1, no);
+			
+			pstmt.executeUpdate();
+		}
+	}
 	
 	public int update(Connection con, int no, String title) throws SQLException {
 		String sql = "UPDATE board_Free SET title=?, moddate=SYSDATE "

@@ -11,6 +11,7 @@ import module.model.Reply;
 
 
 public class Reply_FreeDao {
+	
 	public void insert(Connection con, String userId, int boardNo, String body) throws SQLException {
 		String sql = "INSERT INTO reply_free "
 				+ "(memberid, board_no, body, regdate) "

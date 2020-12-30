@@ -2,7 +2,6 @@ package module.dao;
 
 import java.sql.Connection;
 
-
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -10,9 +9,17 @@ import java.sql.SQLException;
 import db.DBUtil;
 import module.model.Board_Content;
 
-
-
 public class Board_ContentDao {
+	
+	public void delete(Connection con, int no) throws SQLException {
+		String sql = "DELETE board_content WHERE board_no=?";
+		
+		try (PreparedStatement pstmt = con.prepareStatement(sql)) {
+			pstmt.setInt(1, no);
+			
+			pstmt.executeUpdate();
+		}
+	}
 	
 	public Board_Content selectById(Connection con, int no) throws SQLException {
 		String sql = "SELECT * FROM board_content "
@@ -54,4 +61,5 @@ public class Board_ContentDao {
 				}
 			}
 		}
+
 }

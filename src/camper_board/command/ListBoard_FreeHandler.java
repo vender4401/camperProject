@@ -1,6 +1,7 @@
 package camper_board.command;
 
 import javax.servlet.http.HttpServletRequest;
+
 import javax.servlet.http.HttpServletResponse;
 
 import camper_board.service.BoardPage;

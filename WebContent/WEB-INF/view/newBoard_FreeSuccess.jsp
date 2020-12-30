@@ -16,7 +16,6 @@
 <h1>게시글 등록 완료.</h1>
 <br />
 	<a href="${root }/board_Free/read.do?no=${newBoard_FreeNo}">게시글내용보기</a>
-	<a href="${root }/board_Free/list.do">리스트 보기</a>	
-	<a href="${root }/board_Free/modify.do">게시글 수정</a>
+	<a href="${root }/board_Free/list.do">리스트 보기</a>
 </body>
 </html>
