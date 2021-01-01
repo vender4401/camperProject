@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="u" tagdir="/WEB-INF/tags"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,19 +9,25 @@
 <title>게시글 목록</title>
 </head>
 <body>
-<h1>제목</h1>
-<table border="1">
-<tr>
-	<td colspan="4"><a href="${root }/board_Free/write.do">게시물 쓰기</a> <br /></td>
-</tr>
 
-<tr>
-	<td>번호</td>
-	<td>제목</td>
-	<td>작성자</td>
-	<td>조회수</td>	
-</tr>
+<u:navbar />
+<div class="text-center">
+<h1>FREE COMMUNITY</h1>
+<p>자유롭게 글을 작성 할수 있는 공간 입니다.</p>
+</div>
 
+
+<div class="container-fluid max-width text-center">
+<table class="table table-hover">
+
+<thead>
+<tr>
+	<td><i class="fas fa-sign"></i></td>
+	<td><i class="fas fa-list"></i></td>
+	<td><i class="far fa-id-badge"></i></td>
+	<td><i class="fab fa-cloudscale"></i></td>	
+</tr>
+</thead>
 
 <c:if test="${boardPage.hasNoBoards() }">
 <tr>
@@ -36,6 +43,9 @@
 	<a href="${root }/board_Free/read.do?no=${board_Free.number }&pageNo=${boardPage.currentPage }">
 	<c:out value="${board_Free.title }"/>
 	</a>
+	<c:if test="${board_Free.replyCount > 0 }" >
+	<i class="fab fa-replyd"></i> ${board_Free.replyCount }
+	</c:if>
 	</td>
 	
 	<td>${board_Free.writer.name }</td>
@@ -57,10 +67,16 @@
 		<c:if test="${boardPage.endPage < boardPage.totalPages }">
 		<a href="${root }/board_Free/list.do?pageNo=${boardPage.startPage + 5}">[다음]</a>
 		</c:if>
+
 	</td>
 </tr>
 </c:if>
 </table>
+
+
+	<i class="fas fa-pen-square fa-2x"><a href="${root }/board_Free/write.do"> 글 쓰기</a></i><br />
+
+</div>
 
 </body>
 </html>

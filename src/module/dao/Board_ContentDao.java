@@ -11,6 +11,18 @@ import module.model.Board_Content;
 
 public class Board_ContentDao {
 	
+	public int update(Connection conn, int no, String content) throws SQLException {
+		String sql = "UPDATE board_content SET content=? "
+				+ "WHERE board_no=?";
+		try(PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			pstmt.setString(1, content);
+			pstmt.setInt(2, no);
+			
+			int cnt = pstmt.executeUpdate();
+			return cnt;
+		}
+	}
+	
 	public void delete(Connection con, int no) throws SQLException {
 		String sql = "DELETE board_content WHERE board_no=?";
 		

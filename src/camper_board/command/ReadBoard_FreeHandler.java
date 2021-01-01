@@ -27,8 +27,9 @@ public class ReadBoard_FreeHandler implements CommandHandler {
 			Board_FreeData board_FreeData = readBoard_FreeService.getBoard_Free(board_FreeNum, true);
 			req.setAttribute("board_FreeData", board_FreeData);
 			
-			List<Reply> replyList = replyService.getReplyList(board_FreeNum);
-			req.setAttribute("replyList", replyList);
+			// 자유 게시판 댓글 , Reply 의 board_FreeNum 값을 가져옴
+			List<Reply> replyBoard_FreeList = replyService.getReplyList(board_FreeNum);
+			req.setAttribute("replyBoard_FreeList", replyBoard_FreeList);
 			
 			return "readBoard_Free";
 			

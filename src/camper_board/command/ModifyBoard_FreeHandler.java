@@ -90,8 +90,14 @@ public class ModifyBoard_FreeHandler implements CommandHandler {
 			res.sendError(HttpServletResponse.SC_NOT_FOUND);
 			return null;
 		} catch (PermissionDeniedException e) {
-			res.sendError(HttpServletResponse.SC_FORBIDDEN);
+			res.sendError(HttpServletResponse.SC_NOT_FOUND);
 			return null;
+			/*
+			 * // 익셉션이 발생하면 응? // errors의 "noWriter" 라는 이름으로 들어감
+			 * 
+			 * errors.put("noWriter", true); // req의 errors 라는 이름으로 지정
+			 * req.setAttribute("errors", errors); return FORM_VIEW;
+			 */			
 		}
 	}
 

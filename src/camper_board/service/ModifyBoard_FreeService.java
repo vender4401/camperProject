@@ -24,10 +24,10 @@ public class ModifyBoard_FreeService {
 				throw new Board_FreeNotFoundException();
 			}
 			if(!canModify(modReq.getUserId(), board_Free)) {
-				throw new Board_FreeNotFoundException();
+				throw new PermissionDeniedException();
 			}
 			board_FreeDao.update(conn,modReq.getBoard_FreeNumber(), modReq.getTitle());
-			board_FreeDao.update(conn,modReq.getBoard_FreeNumber(), modReq.getContent());
+			contentDao.update(conn,modReq.getBoard_FreeNumber(), modReq.getContent());
 			conn.commit();
 		} catch (SQLException e) {
 			DBUtil.rollback(conn);

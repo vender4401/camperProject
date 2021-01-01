@@ -1,6 +1,7 @@
 package camper_board.command;
 
 import java.io.IOException;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -44,7 +45,7 @@ private static final String FORM_VIEW = "deleteBoard_FreeForm";
 		int no = Integer.parseInt(req.getParameter("no"));
 		String password = req.getParameter("password");
 		
-		Board_FreeData articleData = readService.getBoard_Free(no, false);
+		Board_FreeData board_FreeData = readService.getBoard_Free(no, false);
 		
 		// 가 같으면 삭제함
 		//    암호가 일치하는 지 확인 해서
@@ -52,7 +53,7 @@ private static final String FORM_VIEW = "deleteBoard_FreeForm";
 		//           아니면 throw exception
 		
 		// 안 같으면 throw exception
-		if (!authUser.getId().equals(articleData.getBoard_Free().getWriter().getId())) {
+		if (!authUser.getId().equals(board_FreeData.getBoard_Free().getWriter().getId())) {
 			res.sendError(HttpServletResponse.SC_FORBIDDEN);
 			return null;
 		}

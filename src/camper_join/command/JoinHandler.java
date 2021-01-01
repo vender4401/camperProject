@@ -65,6 +65,14 @@ public class JoinHandler implements CommandHandler {
 		
 		joinReq.validate(errors);
 		
+		if (phone1 == null || phone1.isEmpty() || phone2 == null || phone2.isEmpty() || phone3 == null || phone3.isEmpty()) {
+            errors.put("phoneIsNull", true);
+        }
+
+        if (email1 == null || email1.isEmpty() || email2 == null ||email2.isEmpty()) {
+            errors.put("emailNull", true);
+        }
+		
 		if (!errors.isEmpty()) {
 			return FORM_VIEW;
 		}

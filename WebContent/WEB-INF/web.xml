@@ -51,6 +51,8 @@
   <filter-mapping>
   	<filter-name>LoginCheckFilter</filter-name>
   	<url-pattern>/changePwd.do</url-pattern>
+  	<url-pattern>/modify.do</url-pattern>
+  	<url-pattern>/userInfo.do</url-pattern>  	
   	<url-pattern>/removeMember.do</url-pattern>
   	<url-pattern>/board_Free/write.do</url-pattern>
   	<url-pattern>/board_Free/modify.do</url-pattern>

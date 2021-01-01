@@ -86,17 +86,23 @@ public class JoinRequest {
 		// 성별 gender 잘 들어왔는지?
 		checkEmpty(errors, gender, "gender");
 		// 생년월일 잘 들어왔는지? 
-		checkEmpty(errors, birth, "birth");		
+		checkEmpty(errors, birth, "birth");	
+		
 		// phone 잘 들어왔는지?
 		checkEmpty(errors, phone, "phone");
-		// email-1 잘 들어왔는지?
-		checkEmpty(errors, email, "email");		
+
+		// email 잘 들어왔는지?
+		checkEmpty(errors, email, "email");
+		
+		
 		// password 잘 들어왔는지?
 		checkEmpty(errors, password, "password");
 		// passwordCheck 잘 들어왔는지?
 		checkEmpty(errors, passwordCheck, "passwordCheck");
 		// 2차passwrd2 잘 들어왔는지?
 		checkEmpty(errors, password2, "password2");
+		
+		
 		
 		if (!errors.containsKey("passwordCheck")) {
 			if (!isPasswordEqualToConfirm()) {

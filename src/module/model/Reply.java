@@ -3,23 +3,26 @@ package module.model;
 import java.util.Date;
 
 public class Reply {
-	private int id;
-	private String memberId;
+	private Integer id;
+	private String camperId;
 	private int board_FreeNum;
 	private String body;
 	private Date regDate;
+	private String writerId;
 	
-	public int getId() {
+	
+	public Integer getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
-	public String getMemberId() {
-		return memberId;
+		
+	public String getCamperId() {
+		return camperId;
 	}
-	public void setMemberId(String memberId) {
-		this.memberId = memberId;
+	public void setCamperId(String camperId) {
+		this.camperId = camperId;
 	}
 	
 	public int getBoard_FreeNum() {
@@ -39,5 +42,13 @@ public class Reply {
 	}
 	public void setRegDate(Date regDate) {
 		this.regDate = regDate;
-	}	
+	}
+	public String getWriterId() {
+		return writerId;
+	}
+	public void setWriterId(String writerId) {
+		this.writerId = writerId;
+	}
+
+	
 }

@@ -76,8 +76,14 @@ public class Camper {
 	public boolean matchPassword(String pwd) {
 		return password.equals(pwd);
 	}
+	public boolean matchPassword2(String pwd) {
+		return password2.equals(pwd);
+	}
 	public void changePassword(String newPwd) {
 		this.password = newPwd;		
+	}
+	public void changeId(String newName) {
+		this.name = newName;		
 	}
 	
 	

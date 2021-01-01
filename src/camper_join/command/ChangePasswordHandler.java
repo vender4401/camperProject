@@ -6,7 +6,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import camper_join.service.ChangePasswordException;
+
 import camper_join.service.ChangePasswordService;
 import camper_join.service.InvalidPasswordException;
 import camper_join.service.MemberNotFoundException;

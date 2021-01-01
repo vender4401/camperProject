@@ -10,6 +10,8 @@ public class Board_Free {
 	private Date moddate;
 	private int readCount;
 	private int recommendCount;
+
+	
 	
 	public Board_Free(Integer number, Writer writer, String title, Date regdate, 
 			Date moddate, int readCount, int recommendCount) {
@@ -21,6 +23,8 @@ public class Board_Free {
 		this.moddate = moddate;
 		this.readCount = readCount;
 		this.recommendCount = recommendCount;
+
+		
 	}
 
 	public Integer getNumber() {
@@ -50,6 +54,8 @@ public class Board_Free {
 	public int getRecommendCount() {
 		return recommendCount;
 	}
+
+
 
 	
 }

@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import camper_user.service.LoginFailException;
 import camper_user.service.LoginService;
 import camper_user.service.User;
+import module.model.Camper;
 import mvc.command.CommandHandler;
 
 public class LoginHandler implements CommandHandler {
@@ -49,6 +50,7 @@ public class LoginHandler implements CommandHandler {
 		
 		try {
 			User user = loginService.login(id, password);
+			
 			req.getSession().setAttribute("authUser", user);
 			res.sendRedirect(req.getContextPath() + "/index.jsp");
 			return null;

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="u" tagdir="/WEB-INF/tags"%>
 <!DOCTYPE html>
 <html>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -14,31 +15,53 @@
 </head>
 <body>
 
-<h1>로 그 인</h1>
+<u:navbar />
+
+<div class="text-center">
+<h1>LOGIN</h1>
+</div>
+
+<div class="text-center">
 <form action="${root }/login.do" method="post">
-
-<c:if test="${errors.idOrPwNotMatch }">
-<small class="form-text text-muted">
+  <div class="form-group">
+    <label for="id">CAMPER ID</label> <br />
+    <input type="text" value="${param.id }" name="id" placeholder="아이디 입력">
+    <c:if test="${errors.id }">
+	<small class="form-text text-muted">
+              아이디 미입력.
+	</small>
+	</c:if>
+    
+    
+    <c:if test="${errors.idOrPwNotMatch }">
+	<small class="form-text text-muted">
               아이디와 암호가 일치하지 않습니다.
-</small>
-</c:if>
-<br />
-<input type="text" value="${param.id }" name="id" /> <br />
-
-<c:if test="${errors.id }">
-                  <small class="form-text text-muted">
-                    아이디 미입력.
-                  </small>
-                </c:if>	
-비밀번호 <br />
-<input type="password" value="${param.password }" name="password" /> <br />
-<c:if test="${errors.password }">
+	</small>
+	</c:if>
+  </div>
+  
+  <div class="form-group">
+    <label for="password">CAMPER PASSWORD</label> <br />
+    <input type="password" value="${param.password }" name="password" placeholder="패스워드 입력" id="password">
+    <c:if test="${errors.password }">
                   <small class="form-text text-muted">
                     비밀번호 미입력.
                   </small>
                 </c:if>	
-
-<input type="submit" value="로그인" />
+  </div>
+  
+  <div class="form-group form-check">
+    <label class="form-check-label">
+      <input class="form-check-input" type="checkbox"> Remember me
+    </label>
+  </div>
+  
+  <button type="submit" class="btn btn-primary">LOGIN</button>
 </form>
+</div>
+ 
+
+
+
 </body>
 </html>

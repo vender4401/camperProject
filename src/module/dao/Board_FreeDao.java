@@ -14,6 +14,7 @@ import java.util.List;
 
 import db.DBUtil;
 import module.model.Board_Free;
+import module.model.Reply_Free;
 import module.model.Writer;
 
 public class Board_FreeDao {	
@@ -71,15 +72,16 @@ public class Board_FreeDao {
 		}			
 	}
 	
-	public List<Board_Free> select(Connection con, int pageNum, int size) throws SQLException {			
+	public List<Reply_Free> select(Connection con, int pageNum, int size) throws SQLException {			
 			
 			String sql = "SELECT rn, board_no, writer_id, writer_name, "
-					+ "title, regdate, moddate, read_cnt, recommend_cnt "
+					+ "title, regdate, moddate, read_cnt, reply_cnt "
 	                + "FROM (SELECT board_no, writer_id, writer_name, title, "
-	                + "regdate, moddate, read_cnt, recommend_cnt, ROW_NUMBER() "
-	                + "OVER (ORDER BY board_no DESC) rn FROM board_free ) "
+	                + "regdate, moddate, read_cnt, ROW_NUMBER() "
+	                + "OVER (ORDER BY board_no DESC) rn, "
+	                + "(SELECT COUNT(*) FROM reply_free A WHERE A.board_no=B.board_no) AS reply_cnt "
+	                + "FROM board_free B) "
 	                + "WHERE rn BETWEEN ? AND ?";
-			
 			
 			PreparedStatement pstmt = null;
 			ResultSet rs = null;
@@ -89,9 +91,18 @@ public class Board_FreeDao {
 				pstmt.setInt(2, pageNum * size);
 				
 				rs = pstmt.executeQuery();
-				List<Board_Free> result = new ArrayList<>();
+				List<Reply_Free> result = new ArrayList<>();
 				while (rs.next()) {
-					result.add(convertBoard_Free(rs));
+					Reply_Free rf = new Reply_Free();
+					rf.setModdate(rs.getDate("moddate"));
+					rf.setNumber(rs.getInt("board_no"));
+					rf.setReadCount(rs.getInt("read_cnt"));
+					rf.setRegdate(rs.getDate("regdate"));
+					rf.setReplyCount(rs.getInt("reply_cnt"));
+					rf.setTitle(rs.getString("title"));
+					rf.setWriter(new Writer(rs.getString("writer_id"),
+										rs.getString("writer_name")));
+					result.add(rf);
 				}
 				
 				return result;

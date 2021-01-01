@@ -1,6 +1,7 @@
 package module.dao;
 
 import java.sql.Connection;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -8,7 +9,23 @@ import java.sql.SQLException;
 import db.DBUtil;
 import module.model.Camper;
 
+
 public class CamperDao {
+	
+	
+	
+	
+	public void delete(Connection con, String id) throws SQLException {
+		// 삭제 쿼리 실행
+		String sql = "DELETE camper WHERE id = ?";
+		
+		try (PreparedStatement pstmt = con.prepareStatement(sql)) {
+			pstmt.setString(1, id);
+					
+			pstmt.executeUpdate();
+		}
+	}
+	
 	
 	public Camper selectById(Connection con, String id) throws SQLException {
 		
@@ -99,4 +116,17 @@ public class CamperDao {
 				pstmt.executeUpdate();
 			}
 		}
+	
+	public void updateName(Connection con, Camper camper) throws SQLException {
+		String sql = "UPDATE camper SET name=?, password=? WHERE id=?";
+		
+		try (PreparedStatement pstmt = con.prepareStatement(sql)) {
+			pstmt.setString(1, camper.getName());
+			pstmt.setString(2, camper.getPassword());
+			pstmt.setString(3, camper.getId());
+			
+			pstmt.executeUpdate();
+		}
+	}
+	
 }
