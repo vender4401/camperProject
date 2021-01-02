@@ -33,45 +33,43 @@
 	<small class="form-text text-muted">
                     제목이 비어 있습니다.
                   </small>
-                  </c:if>
-	<br />
-	<br />
-	
-	내용 :
-	<textarea name="contentTrade" rows="5" cols="30">${param.content }</textarea>
-	<c:if test="${errorsTrade.content }">
-	<small class="form-text text-muted">
-                    내용이 비어 있습니다.
-                  </small>
-				</c:if>
-	
-	<br />
-	
+                  </c:if><br />
 	판매 가격 : 
-	<textarea name="price" rows="5" cols="30">${param.price }</textarea>
+	<input type="text" name="price" value="${param.price }" />
 	<c:if test="${errorsTrade.price }">
 	<small class="form-text text-muted">
                     원하시는 가격을 입력 하세요.
                   </small>
-				</c:if>
-	
-	<br />
+				</c:if><br />
 	거래 지역 : 
-	<textarea name="place" rows="5" cols="30">${param.place }</textarea>
+	<input type="text" name="place" value="${param.place }" />
 	<c:if test="${errorsTrade.place }">
 	<small class="form-text text-muted">
                     거래하실 지역을 적어주세요.
                   </small>
-				</c:if>
-	
-	<br />
+				</c:if><br />
 	사용 기간 : 
-	<textarea name="timeuse" rows="5" cols="30">${param.timeuse }</textarea>
+	<input type="text" name="timeuse" value="${param.timeuse }" />
 	<c:if test="${errorsTrade.timeuse }">
 	<small class="form-text text-muted">
                     사용 기간을 적어주세요.
                   </small>
-				</c:if>
+				</c:if><br />
+	<br /><br />
+	내용 :
+	<textarea name="contentTrade" rows="10" cols="130">${param.content }</textarea>
+	<c:if test="${errorsTrade.content }">
+	<small class="form-text text-muted">
+                    내용이 비어 있습니다.
+                  </small>
+				</c:if>	
+	<br />
+	<br />
+	
+
+	
+	<br />
+
 	
 	<br />
 	<input type="submit" value="글 등록" />

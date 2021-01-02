@@ -16,9 +16,18 @@
 <body>
 <u:navbar />
 
+
+<div class="text-center">
 <h1>게시글 등록 완료.</h1>
+</div>
+
+
+<div class="text-center">
+
+
 <br />
 	<a href="${root }/board_Free/read.do?no=${newBoard_FreeNo}">게시글내용보기</a>
 	<a href="${root }/board_Free/list.do">리스트 보기</a>
+</div>
 </body>
 </html>

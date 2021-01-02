@@ -1,11 +1,20 @@
 package camper_board_trade.service;
 
+import java.sql.Connection;
+import java.sql.SQLException;
 
+import camper_user.service.User;
+import db.ConnectionProvider;
+import db.DBUtil;
+import module.dao.Board_ContentDao2;
+import module.dao.Board_FreeDao2;
+import module.dao.CamperDao2;
+import module.model.Camper;
 
 public class DeleteBoard_FreeService2 {
-	private CamperDao camperDao = new CamperDao();
-	private Board_FreeDao board_FreeDao = new Board_FreeDao();
-	private Board_ContentDao board_ContentDao = new Board_ContentDao();
+	private CamperDao2 camperDao = new CamperDao2();
+	private Board_FreeDao2 board_FreeDao = new Board_FreeDao2();
+	private Board_ContentDao2 board_ContentDao = new Board_ContentDao2();
 
 	public void delete(int no, User authUser, String password) {
 

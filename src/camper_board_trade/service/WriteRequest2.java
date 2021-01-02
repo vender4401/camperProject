@@ -51,6 +51,15 @@ public class WriteRequest2 {
 		if(content == null || content.trim().isEmpty()) {
 			errors.put("content", Boolean.TRUE);
 		}
+		if(price == null || price.trim().isEmpty()) {
+			errors.put("price", Boolean.TRUE);
+		}
+		if(place == null || place.trim().isEmpty()) {
+			errors.put("place", Boolean.TRUE);
+		}
+		if(timeuse == null || timeuse.trim().isEmpty()) {
+			errors.put("timeuse", Boolean.TRUE);
+		}
 	}
 
 	

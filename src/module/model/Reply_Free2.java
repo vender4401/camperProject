@@ -2,7 +2,7 @@ package module.model;
 
 import java.util.Date;
 
-public class Reply_Trade {
+public class Reply_Free2 {
 	private Integer number;
 	private Trader trader;
 	private String title;
@@ -61,4 +61,7 @@ public class Reply_Trade {
 	public void setReplyCount(int replyCount) {
 		this.replyCount = replyCount;
 	}
+	
+	
+	
 }

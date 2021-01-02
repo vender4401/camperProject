@@ -32,7 +32,7 @@ public class Board_ContentDao2 {
 	}
 	
 	public Board_Content2 selectById(Connection con, int no) throws SQLException {
-		String sql = "SELECT * FROM board_content "
+		String sql = "SELECT * FROM trade_content "
 				+ "WHERE board_no=?";
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;

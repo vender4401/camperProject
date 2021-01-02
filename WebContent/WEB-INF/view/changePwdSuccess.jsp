@@ -18,5 +18,6 @@
 <div class="text-center">
 <h1>암호를 변경 했습니다.</h1>
 </div>
+
 </body>
 </html>

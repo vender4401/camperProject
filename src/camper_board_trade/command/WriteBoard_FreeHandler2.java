@@ -53,7 +53,7 @@ public class WriteBoard_FreeHandler2 implements CommandHandler {
 	
 	private WriteRequest2 createWriteRequest(User user, HttpServletRequest req) {
 		return new WriteRequest2(new Trader(user.getId(), user.getName()), 
-				req.getParameter("title"), req.getParameter("content"),
+				req.getParameter("titleTrade"), req.getParameter("contentTrade"),
 				req.getParameter("price"), req.getParameter("place"),
 				req.getParameter("timeuse")
 				);

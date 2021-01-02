@@ -1,12 +1,26 @@
 package camper_board_trade.command;
 
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+
+import camper_board.service.PermissionDeniedException;
+import camper_board_trade.service.Board_FreeData2;
+import camper_board_trade.service.DeleteBoard_FreeService2;
+import camper_board_trade.service.ReadBoard_FreeService2;
+import camper_user.service.User;
+import mvc.command.CommandHandler;
 
 public class DeleteBoard_FreeHandler2 implements CommandHandler {
 private static final String FORM_VIEW = "deleteBoard_FreeForm";
 	
-	private ReadBoard_FreeService readService = new ReadBoard_FreeService();
-	private DeleteBoard_FreeService deleteBoard_FreeService = new DeleteBoard_FreeService();
+	private ReadBoard_FreeService2 readService = new ReadBoard_FreeService2();
+	private DeleteBoard_FreeService2 deleteBoard_FreeService = new DeleteBoard_FreeService2();
 
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws Exception {
@@ -31,7 +45,7 @@ private static final String FORM_VIEW = "deleteBoard_FreeForm";
 		int no = Integer.parseInt(req.getParameter("no"));
 		String password = req.getParameter("password");
 		
-		Board_FreeData board_FreeData = readService.getBoard_Free(no, false);
+		Board_FreeData2 board_FreeData = readService.getBoard_Free(no, false);
 		
 		// 가 같으면 삭제함
 		//    암호가 일치하는 지 확인 해서
@@ -39,7 +53,7 @@ private static final String FORM_VIEW = "deleteBoard_FreeForm";
 		//           아니면 throw exception
 		
 		// 안 같으면 throw exception
-		if (!authUser.getId().equals(board_FreeData.getBoard_Free().getWriter().getId())) {
+		if (!authUser.getId().equals(board_FreeData.getBoard_Free().getTrader().getId())) {
 			res.sendError(HttpServletResponse.SC_FORBIDDEN);
 			return null;
 		}

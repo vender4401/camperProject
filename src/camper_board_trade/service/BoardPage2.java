@@ -1,17 +1,19 @@
 package camper_board_trade.service;
 
+import java.util.List;
 
+import module.model.Board_Free2;
 
 public class BoardPage2 {
 	private int total; // 전체 게시물 수
 	private int currentPage; //현재 페이지
-	private List<Board_Free> content; // select한 데이터 들
+	private List<Board_Free2> content; // select한 데이터 들
 	private int totalPages; // 총 페이지 수
 	private int startPage; // 시작 페이지
 	private int endPage; // 마지막 페이지
 	
 	public BoardPage2(int total, int currentPage,
-		int size, List<Board_Free> content) {
+		int size, List<Board_Free2> content) {
 		this.total = total;
 		this.currentPage = currentPage;
 		this.content = content;
@@ -39,7 +41,7 @@ public class BoardPage2 {
 		return totalPages;
 	}
 	
-	public List<Board_Free> getContent() {
+	public List<Board_Free2> getContent() {
 		return content;
 	}
 	

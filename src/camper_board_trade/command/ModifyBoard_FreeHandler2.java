@@ -1,13 +1,27 @@
 package camper_board_trade.command;
 
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import camper_board.service.Board_FreeNotFoundException;
+import camper_board.service.PermissionDeniedException;
+import camper_board_trade.service.Board_FreeData2;
+import camper_board_trade.service.ModifyBoard_FreeService2;
+import camper_board_trade.service.ModifyRequest2;
+import camper_board_trade.service.ReadBoard_FreeService2;
+import camper_user.service.User;
+import mvc.command.CommandHandler;
 
 public class ModifyBoard_FreeHandler2 implements CommandHandler {
 	
 	private static final String FORM_VIEW = "modifyBoard_FreeForm";
 
-	private ReadBoard_FreeService readService = new ReadBoard_FreeService();
-	private ModifyBoard_FreeService modifyService = new ModifyBoard_FreeService();
+	private ReadBoard_FreeService2 readService = new ReadBoard_FreeService2();
+	private ModifyBoard_FreeService2 modifyService = new ModifyBoard_FreeService2();
 
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws Exception {
@@ -27,14 +41,14 @@ public class ModifyBoard_FreeHandler2 implements CommandHandler {
 			String noVal = req.getParameter("no");
 			int no = Integer.parseInt(noVal);
 			
-			Board_FreeData board_FreeData = readService.getBoard_Free(no, false);
+			Board_FreeData2 board_FreeData = readService.getBoard_Free(no, false);
 			User authUser = (User) req.getSession().getAttribute("authUser");
 			if (!canModify(authUser, board_FreeData)) {
 				res.sendError(HttpServletResponse.SC_FORBIDDEN);
 				return null;
 			}
 			
-			ModifyRequest modreq = new ModifyRequest(
+			ModifyRequest2 modreq = new ModifyRequest2(
 					authUser.getId(),no, 
 					board_FreeData.getBoard_Free().getTitle(),
 					board_FreeData.getBoard_Content());			
@@ -54,7 +68,7 @@ public class ModifyBoard_FreeHandler2 implements CommandHandler {
 		int no = Integer.parseInt(noVal);
 		
 		
-		ModifyRequest modReq = new ModifyRequest(
+		ModifyRequest2 modReq = new ModifyRequest2(
 				authUser.getId(),no,
 				req.getParameter("title"),
 				req.getParameter("content"));
@@ -88,8 +102,8 @@ public class ModifyBoard_FreeHandler2 implements CommandHandler {
 	}
 
 			
-	private boolean canModify(User authUser, Board_FreeData board_FreeDate) {
-		String writerId = board_FreeDate.getBoard_Free().getWriter().getId();
+	private boolean canModify(User authUser, Board_FreeData2 board_FreeDate) {
+		String writerId = board_FreeDate.getBoard_Free().getTrader().getId();
 		return authUser.getId().equals(writerId);
 	}
 

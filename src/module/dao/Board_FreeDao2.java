@@ -2,6 +2,7 @@ package module.dao;
 
 import java.sql.Connection;
 
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -11,8 +12,8 @@ import java.util.Date;
 import java.util.List;
 
 import db.DBUtil;
-import module.model.Reply_Trade;
 import module.model.Board_Free2;
+import module.model.Reply_Free2;
 import module.model.Trader;
 
 
@@ -71,7 +72,7 @@ public class Board_FreeDao2 {
 		}			
 	}
 	
-	public List<Reply_Trade> select(Connection con, int pageNum, int size) throws SQLException {			
+	public List<Reply_Free2> select(Connection con, int pageNum, int size) throws SQLException {			
 			
 			String sql = "SELECT rn, board_no, writer_id, writer_name, "
 					+ "title, price, place, timeuse, regdate, moddate, read_cnt, reply_cnt "
@@ -90,9 +91,9 @@ public class Board_FreeDao2 {
 				pstmt.setInt(2, pageNum * size);
 				
 				rs = pstmt.executeQuery();
-				List<Reply_Trade> result = new ArrayList<>();
+				List<Reply_Free2> result = new ArrayList<>();
 				while (rs.next()) {
-					Reply_Trade rf = new Reply_Trade();
+					Reply_Free2 rf = new Reply_Free2();
 					rf.setModdate(rs.getDate("moddate"));
 					rf.setNumber(rs.getInt("board_no"));
 					rf.setReadCount(rs.getInt("read_cnt"));

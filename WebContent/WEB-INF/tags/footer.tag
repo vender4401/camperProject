@@ -1,7 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ tag language="java" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="u" tagdir="/WEB-INF/tags"%>
+
 <!DOCTYPE html>
 <html>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -11,19 +10,18 @@
 <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 <head>
 <meta charset="UTF-8">
-<title>게시글 등록</title>
 </head>
 <body>
-<u:navbar />
 <div class="text-center">
-<h1>게시글 등록 완료.</h1>
+<footer class="footer mt-auto py-3 bg-dark">
+  <div class="container">
+    <span class="text-muted"><i class="fas fa-atlas"> JoonAng 501 <br /><br />
+    						Name : 최윤관</i>
+    </span>
+  </div>
+</footer>
 </div>
-
-
-<div class="text-center">
-<br />
-	<a href="${root }/trade/read.do?no=${newTraderNo}">게시글내용보기</a>
-	<a href="${root }/trade/list.do">리스트 보기</a>
-	</div>
 </body>
 </html>
+
+

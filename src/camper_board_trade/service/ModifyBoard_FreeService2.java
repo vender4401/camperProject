@@ -1,10 +1,17 @@
 package camper_board_trade.service;
 
+import java.sql.Connection;
+import java.sql.SQLException;
 
+import db.ConnectionProvider;
+import db.DBUtil;
+import module.dao.Board_ContentDao2;
+import module.dao.Board_FreeDao2;
+import module.model.Board_Free2;
 
 public class ModifyBoard_FreeService2 {
-	private Board_FreeDao board_FreeDao = new Board_FreeDao();
-	private Board_ContentDao contentDao = new Board_ContentDao();
+	private Board_FreeDao2 board_FreeDao = new Board_FreeDao2();
+	private Board_ContentDao2 contentDao = new Board_ContentDao2();
 	
 	public void modify(ModifyRequest2 modReq) {
 		Connection conn = null;
@@ -12,7 +19,7 @@ public class ModifyBoard_FreeService2 {
 			conn = ConnectionProvider.getConnection();
 			conn.setAutoCommit(false);
 			
-			Board_Free board_Free = board_FreeDao.selectById(conn, modReq.getBoard_FreeNumber());
+			Board_Free2 board_Free = board_FreeDao.selectById(conn, modReq.getBoard_FreeNumber());
 			if(board_Free == null) {
 				throw new Board_FreeNotFoundException2();
 			}
@@ -33,7 +40,7 @@ public class ModifyBoard_FreeService2 {
 		}
 		
 	} 
-	private boolean canModify(String modfyingUserId, Board_Free board_Free) {
-		return board_Free.getWriter().getId().equals(modfyingUserId);
+	private boolean canModify(String modfyingUserId, Board_Free2 board_Free) {
+		return board_Free.getTrader().getId().equals(modfyingUserId);
 	}
 }

@@ -12,7 +12,7 @@ import module.model.Reply2;
 
 public class Reply_TradeDao {
 	public void delete(Connection con, Integer id) throws SQLException {
-		String sql = "DELETE reply_free WHERE replyid=?";
+		String sql = "DELETE reply_trade WHERE replyid=?";
 		
 		try (PreparedStatement pstmt = con.prepareStatement(sql)) {
 			pstmt.setInt(1, id);
@@ -23,7 +23,7 @@ public class Reply_TradeDao {
 	
 	
 	public void insert(Connection con, String camperId, String writerId, int boardNo, String body) throws SQLException {
-		String sql = "INSERT INTO reply_free "
+		String sql = "INSERT INTO reply_trade "
 				+ "(camperid, writerid, board_no, body, regdate) "
 				+ "VALUES (?, ?, ?, ?, SYSDATE)";
 		

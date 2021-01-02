@@ -55,6 +55,7 @@
   	<url-pattern>/userInfo.do</url-pattern>  	
   	<url-pattern>/removeMember.do</url-pattern>
   	<url-pattern>/board_Free/write.do</url-pattern>
+  	<url-pattern>/trade/write.do</url-pattern>
   	<url-pattern>/board_Free/modify.do</url-pattern>
   	<url-pattern>/board_Free/delete.do</url-pattern>
   	<url-pattern>/reply/add.do</url-pattern>

@@ -40,5 +40,7 @@
 	<button type="submit" class="btn btn-primary">이름 변경</button>
 </form>
 </div>
+
+
 </body>
 </html>

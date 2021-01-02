@@ -20,7 +20,7 @@ private ListBoard_FreeService2 listBoard_Free = new ListBoard_FreeService2();
 		}
 		
 		ReplyPage2 replyPage = listBoard_Free.getBoardPage(pageNo);
-		req.setAttribute("boardPage", replyPage);
-		return "listBoard_Free";
+		req.setAttribute("tradePage", replyPage);
+		return "listTrade";
 	}
 }

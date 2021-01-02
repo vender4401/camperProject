@@ -21,7 +21,7 @@
 <h1>SIGN UP</h1>
 </div>
 <!-- 아이디 입력 -->
-<div class="text-center">
+<div class="text-center" >
 <form action="${root }/join.do" method="post">
   <div class="form-group">
     <label for="id"><b>아이디</b></label> <br />
@@ -138,7 +138,6 @@
             </small>        
           </c:if>         
   </div>
-
 
 
 <!-- 이메일 입력 -->  
@@ -277,5 +276,6 @@
 <br />
 <input type="submit" value="등록" />
 </form> --%>
+
 </body>
 </html>

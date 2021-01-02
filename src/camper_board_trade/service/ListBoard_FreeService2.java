@@ -6,7 +6,8 @@ import java.util.List;
 
 import db.ConnectionProvider;
 import module.dao.Board_FreeDao2;
-import module.model.Reply_Trade;
+import module.model.Reply_Free2;
+
 
 public class ListBoard_FreeService2 {
 	private Board_FreeDao2 board_FreeDao = new Board_FreeDao2();
@@ -16,7 +17,7 @@ public class ListBoard_FreeService2 {
 		try (Connection con = ConnectionProvider.getConnection()) {
 			int total = board_FreeDao.selectCount(con);
 
-			List<Reply_Trade> content = board_FreeDao.select(con, pageNum, size);
+			List<Reply_Free2> content = board_FreeDao.select(con, pageNum, size);
 			
 			return new ReplyPage2(total, pageNum, size, content);
 		} catch (SQLException e) {

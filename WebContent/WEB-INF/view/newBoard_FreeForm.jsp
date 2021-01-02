@@ -26,7 +26,7 @@
 
 <div class="text-center">
 <form action="${root }/board_Free/write.do" method="post">
-	제목 : 
+	제목 : <br />
 	<input type="text" name="title" value="${param.title }" />
 	
 	<c:if test="${errors.title }">
@@ -37,8 +37,8 @@
 	<br />
 	<br />
 	
-	내용 :
-	<textarea name="content" rows="5" cols="30">${param.content }</textarea>
+	내용 : <br />
+	<textarea name="content" rows="10" cols="130">${param.content }</textarea>
 	<c:if test="${errors.content }">
 	<small class="form-text text-muted">
                     내용이 비어 있습니다.

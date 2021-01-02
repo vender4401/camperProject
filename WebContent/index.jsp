@@ -33,6 +33,6 @@ ${authUser.name }님, 안녕하세요.
 </c:if>
  --%>
 
- 
+<u:footer />
 </body>
 </html>
