@@ -22,10 +22,11 @@
 
 <thead>
 <tr>
-	<td><i class="fas fa-sign"></i></td>
-	<td><i class="fas fa-list"></i></td>
-	<td><i class="far fa-id-badge"></i></td>
-	<td><i class="fab fa-cloudscale"></i></td>	
+	<td><i class="fas fa-sign"> 글 번호</i></td>
+	<td><i class="fas fa-list"> 글 제목</i></td>
+	<td><i class="far fa-id-badge"> 작성자</i></td>
+	<td><i class="fab fa-cloudscale"> 조회수</i></td>	
+
 </tr>
 </thead>
 
@@ -50,6 +51,8 @@
 	
 	<td>${board_Free.writer.name }</td>
 	<td>${board_Free.readCount }</td>
+	
+	
 </tr>
 </c:forEach>
 
@@ -58,14 +61,14 @@
 	<td colspan="4">
 	
 		<c:if test="${boardPage.startPage > 5 }">
-		<a href="${root }/board_Free/list.do?pageNo=${boardPage.startPage - 5 }">[이전]</a>
+		<a href="${root }/board_Free/list.do?pageNo=${boardPage.startPage - 5 }">[PREV]</a>
 		</c:if>
 		<c:forEach var="pNo" begin="${boardPage.startPage }" end="${boardPage.endPage }">
 		<a href="${root }/board_Free/list.do?pageNo=${pNo }">[${pNo }]</a>
 		</c:forEach>
 		
 		<c:if test="${boardPage.endPage < boardPage.totalPages }">
-		<a href="${root }/board_Free/list.do?pageNo=${boardPage.startPage + 5}">[다음]</a>
+		<a href="${root }/board_Free/list.do?pageNo=${boardPage.startPage + 5}">[NEXT]</a>
 		</c:if>
 
 	</td>

@@ -35,7 +35,7 @@
             </li>
             <li class="nav-item">
             <button type="button" class="btn btn-dark">
-                <a class="nav-link" href="${root }/board_Free/list.do"><i class="fas fa-recycle"></i>중고 장터</a>
+                <a class="nav-link" href="${root }/trade/list.do"><i class="fas fa-recycle"></i>중고 장터</a>
                 </button>
             </li>
         </ul>

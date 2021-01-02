@@ -11,12 +11,14 @@
 <body>
 
 <u:navbar />
-
+<div class="text-center">
+<h1>게시물 삭제</h1>
 <form action="${root }/board_Free/modify.do" method="post">
 게시글 번호 : ${modReq.board_FreeNumber } <br />
 <input type="text" name="no" value="${modReq.board_FreeNumber }" hidden />
-
-제목 : <input type="text" name="title" value="${modReq.title }" />
+<br />
+제목 : <br />
+	 <input type="text" name="title" value="${modReq.title }" />
 		<c:if test="${errors.title }"> 제목을 입력 하세요. </c:if><br />
 		
 내용 : <br />
@@ -24,5 +26,6 @@
 <br />
 <input type="submit" value="수정" />
 </form>
+</div>
 </body>
 </html>

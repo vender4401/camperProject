@@ -9,6 +9,9 @@
     <br />
     <i class="fas fa-user-check">${reply.writerId }</i>
     <i class="fas fa-id-card">${reply.camperId }</i>
+
+
+    
 	<br />
 
     <c:if test="${reply.camperId == authUser.id }">

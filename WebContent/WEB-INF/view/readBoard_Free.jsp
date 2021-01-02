@@ -15,24 +15,38 @@
 <table class="table table-hover">
 
 	<tr>
-		<td>글번호</td>
-		<td>작성자</td>
-		<td>제목</td>
-		<td>내용</td>	
+	
+	<td><i class="fas fa-sign"> 글 번호</i></td>
+	<td><i class="far fa-id-badge"> 작성자</i></td>
+	<td><i class="fas fa-list"> 글 제목</i></td>
+	<td><i class="far fa-clock"> 작성시간</i></td>	
+
 	</tr>
 	
 	<tr>
 		<td>${board_FreeData.board_Free.number }</td>	
 		<td>${board_FreeData.board_Free.writer.name}</td>
 		<td>${board_FreeData.board_Free.title }</td>
-		<td>${board_FreeData.board_Content }</td>
+		<td>${board_FreeData.board_Free.moddate }</td>
 	</tr>
 
-		
-
-
-	
 		</table>
+		
+		
+</div>
+<div class="container-fluid max-width text-center">
+<table class="table table-hover">
+	<tr>
+		<td><i class="fas fa-file-alt">내용</i><br />
+		</td>
+	</tr>
+
+	<tr>	
+		<td><i class="fas fa-cube fa-2x"><br /><br />
+		${board_FreeData.board_Content }</i></td>
+	</tr>
+
+</table>
 </div>
 <hr />
 <div class="container-fluid max-width text-right">

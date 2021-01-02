@@ -23,5 +23,5 @@
 }
 </style>
 <div class="text-center">
-  <img src="camperMain4.jpg" alt="" id="main"/>
+  <img src="camperMain11.png" alt="" id="main"/>
 </div>

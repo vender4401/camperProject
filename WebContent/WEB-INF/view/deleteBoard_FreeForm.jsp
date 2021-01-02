@@ -12,6 +12,10 @@
 
 <u:navbar />
 <div class="text-center">
+<h1>게시물 삭제</h1>
+</div>
+<br />
+<div class="text-center">
 <form action="${root }/board_Free/delete.do" method="post">
 <input type="hidden" name="no" value="${param.no }" />
 
